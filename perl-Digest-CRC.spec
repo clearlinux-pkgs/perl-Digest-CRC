@@ -4,12 +4,13 @@
 #
 Name     : perl-Digest-CRC
 Version  : 0.21
-Release  : 7
+Release  : 8
 URL      : http://search.cpan.org/CPAN/authors/id/O/OL/OLIMAUL/Digest-CRC-0.21.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/O/OL/OLIMAUL/Digest-CRC-0.21.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Public-Domain
+Requires: perl-Digest-CRC-lib
 Requires: perl-Digest-CRC-doc
 
 %description
@@ -24,6 +25,14 @@ Group: Documentation
 
 %description doc
 doc components for the perl-Digest-CRC package.
+
+
+%package lib
+Summary: lib components for the perl-Digest-CRC package.
+Group: Libraries
+
+%description lib
+lib components for the perl-Digest-CRC package.
 
 
 %prep
@@ -41,7 +50,7 @@ fi
 %check
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=intel.com,localhost
+export no_proxy=localhost
 make TEST_VERBOSE=1 test
 
 %install
@@ -58,9 +67,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/Digest/CRC.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/auto/Digest/CRC/CRC.so
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Digest/CRC.pm
 
 %files doc
 %defattr(-,root,root,-)
 %doc /usr/share/man/man3/*
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/auto/Digest/CRC/CRC.so
