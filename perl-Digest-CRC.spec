@@ -4,7 +4,7 @@
 #
 Name     : perl-Digest-CRC
 Version  : 0.22.2
-Release  : 10
+Release  : 11
 URL      : http://search.cpan.org/CPAN/authors/id/O/OL/OLIMAUL/Digest-CRC-0.22.2.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/O/OL/OLIMAUL/Digest-CRC-0.22.2.tar.gz
 Summary  : No detailed summary available
@@ -69,7 +69,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Digest/CRC.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Digest/CRC.pm
 
 %files doc
 %defattr(-,root,root,-)
@@ -77,4 +77,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/auto/Digest/CRC/CRC.so
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/auto/Digest/CRC/CRC.so
