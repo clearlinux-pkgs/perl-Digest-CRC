@@ -4,14 +4,14 @@
 #
 Name     : perl-Digest-CRC
 Version  : 0.22.2
-Release  : 16
-URL      : http://search.cpan.org/CPAN/authors/id/O/OL/OLIMAUL/Digest-CRC-0.22.2.tar.gz
-Source0  : http://search.cpan.org/CPAN/authors/id/O/OL/OLIMAUL/Digest-CRC-0.22.2.tar.gz
+Release  : 17
+URL      : https://cpan.metacpan.org/authors/id/O/OL/OLIMAUL/Digest-CRC-0.22.2.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/O/OL/OLIMAUL/Digest-CRC-0.22.2.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Public-Domain
 Requires: perl-Digest-CRC-lib
-Requires: perl-Digest-CRC-doc
+Requires: perl-Digest-CRC-man
 
 %description
 Digest::CRC version 0.22
@@ -19,20 +19,20 @@ Digest::CRC version 0.22
 NAME
 Digest::CRC - Generic CRC functions
 
-%package doc
-Summary: doc components for the perl-Digest-CRC package.
-Group: Documentation
-
-%description doc
-doc components for the perl-Digest-CRC package.
-
-
 %package lib
 Summary: lib components for the perl-Digest-CRC package.
 Group: Libraries
 
 %description lib
 lib components for the perl-Digest-CRC package.
+
+
+%package man
+Summary: man components for the perl-Digest-CRC package.
+Group: Default
+
+%description man
+man components for the perl-Digest-CRC package.
 
 
 %prep
@@ -45,7 +45,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 else
 %{__perl} Build.PL
 ./Build
@@ -74,10 +74,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %defattr(-,root,root,-)
 /usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/Digest/CRC.pm
 
-%files doc
-%defattr(-,root,root,-)
-%doc /usr/share/man/man3/*
-
 %files lib
 %defattr(-,root,root,-)
 /usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/Digest/CRC/CRC.so
+
+%files man
+%defattr(-,root,root,-)
+/usr/share/man/man3/Digest::CRC.3
