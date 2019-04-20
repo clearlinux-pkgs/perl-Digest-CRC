@@ -4,10 +4,10 @@
 #
 Name     : perl-Digest-CRC
 Version  : 0.22.2
-Release  : 25
+Release  : 26
 URL      : https://cpan.metacpan.org/authors/id/O/OL/OLIMAUL/Digest-CRC-0.22.2.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OL/OLIMAUL/Digest-CRC-0.22.2.tar.gz
-Summary  : No detailed summary available
+Summary  : Generic interface to CRC algorithms
 Group    : Development/Tools
 License  : Public-Domain
 Requires: perl-Digest-CRC-lib = %{version}-%{release}
@@ -24,6 +24,7 @@ Summary: dev components for the perl-Digest-CRC package.
 Group: Development
 Requires: perl-Digest-CRC-lib = %{version}-%{release}
 Provides: perl-Digest-CRC-devel = %{version}-%{release}
+Requires: perl-Digest-CRC = %{version}-%{release}
 
 %description dev
 dev components for the perl-Digest-CRC package.
