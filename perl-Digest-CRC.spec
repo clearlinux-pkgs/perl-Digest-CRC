@@ -4,13 +4,13 @@
 #
 Name     : perl-Digest-CRC
 Version  : 0.22.2
-Release  : 28
+Release  : 29
 URL      : https://cpan.metacpan.org/authors/id/O/OL/OLIMAUL/Digest-CRC-0.22.2.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OL/OLIMAUL/Digest-CRC-0.22.2.tar.gz
-Summary  : Generic interface to CRC algorithms
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Public-Domain
-Requires: perl-Digest-CRC-lib = %{version}-%{release}
+Requires: perl-Digest-CRC-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -22,7 +22,6 @@ Digest::CRC - Generic CRC functions
 %package dev
 Summary: dev components for the perl-Digest-CRC package.
 Group: Development
-Requires: perl-Digest-CRC-lib = %{version}-%{release}
 Provides: perl-Digest-CRC-devel = %{version}-%{release}
 Requires: perl-Digest-CRC = %{version}-%{release}
 
@@ -30,22 +29,24 @@ Requires: perl-Digest-CRC = %{version}-%{release}
 dev components for the perl-Digest-CRC package.
 
 
-%package lib
-Summary: lib components for the perl-Digest-CRC package.
-Group: Libraries
+%package perl
+Summary: perl components for the perl-Digest-CRC package.
+Group: Default
+Requires: perl-Digest-CRC = %{version}-%{release}
 
-%description lib
-lib components for the perl-Digest-CRC package.
+%description perl
+perl components for the perl-Digest-CRC package.
 
 
 %prep
 %setup -q -n Digest-CRC-0.22
+cd %{_builddir}/Digest-CRC-0.22
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -55,7 +56,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -75,12 +76,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/Digest/CRC.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Digest::CRC.3
 
-%files lib
+%files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/Digest/CRC/CRC.so
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Digest/CRC.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/auto/Digest/CRC/CRC.so
