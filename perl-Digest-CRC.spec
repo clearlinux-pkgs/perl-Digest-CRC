@@ -4,7 +4,7 @@
 #
 Name     : perl-Digest-CRC
 Version  : 0.23
-Release  : 38
+Release  : 39
 URL      : https://cpan.metacpan.org/authors/id/O/OL/OLIMAUL/Digest-CRC-0.23.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OL/OLIMAUL/Digest-CRC-0.23.tar.gz
 Summary  : No detailed summary available
